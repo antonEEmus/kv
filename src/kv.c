@@ -10,6 +10,7 @@ kv_t *kv_init(size_t capacity) {
         free(db);
         return NULL;
     }
+    db->entries = entries;
     db->capacity = capacity;
     db->count = 0;
 
