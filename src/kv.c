@@ -1,4 +1,4 @@
-#include "kv.h"
+#include "../inc/kv.h"
 
 kv_t *kv_init(size_t capacity) {
     kv_t *db = (kv_t*) malloc(sizeof(kv_t));

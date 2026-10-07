@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "kv.h"
 #include "kv.c"
 
 int main() {
