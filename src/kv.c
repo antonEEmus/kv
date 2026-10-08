@@ -1,6 +1,4 @@
 #include "../inc/kv.h"
-#include <stdbool.h>
-#include <string.h>
 
 static size_t get_hash(const char *s, size_t capacity);
 
@@ -21,7 +19,7 @@ kv_t *kv_init(size_t capacity) {
     return table;
 }
 
-int kv_put(kv_t *table, const char *key, const char *value) {
+int kv_put(kv_t *table, char *key, char *value) {
     if (!table || !key || !value) {
         return -1;
     }

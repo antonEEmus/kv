@@ -2,6 +2,7 @@
 #define KV_H
 
 #include <stdlib.h>
+#include <string.h>
 
 // Types
 
@@ -37,10 +38,10 @@ kv_t *kv_init(size_t capacity);
  * returns -1 if invalid arguments were passed or any allocations failed,
  * returns -2 if the table's capacity was exceeded.
  */
-int kv_put(kv_t *table, const char *key, const char *value);
+int kv_put(kv_t *table, char *key, char *value);
 
-char *kv_get(kv_t *table, const char *key);
-int kv_delete(kv_t *table, const char *key);
-void kv_free(kv_t *table);
+// char *kv_get(kv_t *table, char *key);
+// int kv_delete(kv_t *table, char *key);
+// void kv_free(kv_t *table);
 
 #endif
