@@ -6,7 +6,7 @@
 
 // Types
 
-#define TOMBSTONE ((char*)0x1)
+#define TOMBSTONE ((void*)0x1)
 
 typedef struct kv_entry_t {
     char *key;
@@ -42,12 +42,19 @@ int kv_put(kv_t *table, char *key, char *value);
 
 /**
  * Returns a value from the table by a given key.
- * @param table the table to get the value from
+ * @param table a pointer to the table to get the value from
  * @param key the key to the desired value
  * @return a char* to the string value if found, NULL otherwise
  */
 char *kv_get(kv_t *table, char *key);
-// int kv_delete(kv_t *table, char *key);
+
+/**
+ * Deletes a value from a table by a given key.
+ * @param table a pointer to the table to delete the value from
+ * @param key a key to delete the value by
+ * @return 0 if successful, -1 otherwise
+ */
+int kv_delete(kv_t *table, char *key);
 // void kv_free(kv_t *table);
 
 #endif
