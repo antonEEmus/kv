@@ -40,7 +40,13 @@ kv_t *kv_init(size_t capacity);
  */
 int kv_put(kv_t *table, char *key, char *value);
 
-// char *kv_get(kv_t *table, char *key);
+/**
+ * Returns a value from the table by a given key.
+ * @param table the table to get the value from
+ * @param key the key to the desired value
+ * @return a char* to the string value if found, NULL otherwise
+ */
+char *kv_get(kv_t *table, char *key);
 // int kv_delete(kv_t *table, char *key);
 // void kv_free(kv_t *table);
 

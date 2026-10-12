@@ -57,6 +57,24 @@ int kv_put(kv_t *table, char *key, char *value) {
     return -2; // Capacity exceeded, didn't find an available slot
 }
 
+char *kv_get(kv_t *table, char *key) {
+    if (!table || !key) {
+        return NULL;
+    }
+    size_t hash = get_hash(key, table->capacity);
+    for (size_t i = 0; i < table->capacity; i++) {
+        size_t idx = (hash + i) % table->capacity;
+        kv_entry_t *entry = &table->entries[idx];
+        if (entry->key == NULL) {
+            return NULL;
+        }
+        if (!strcmp(key, entry->key)) {
+            return entry->value;
+        }
+    }
+    return NULL;
+}
+
 static size_t get_hash(const char *s, size_t capacity) {
     size_t hash = 0x1234567890abcdef;
     while (*s) {
