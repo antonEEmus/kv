@@ -59,8 +59,7 @@ int kv_delete(kv_t *table, char *key);
 /**
  * De-allocates a key-value table instance and all its associated members.
  * @param table a pointer to the key-value table to deallocate
- * @return 0 if operation was successful, -1 otherwise
  */
-int kv_free(kv_t *table);
+void kv_free(kv_t *table);
 
 #endif

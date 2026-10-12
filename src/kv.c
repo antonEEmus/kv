@@ -102,9 +102,9 @@ int kv_delete(kv_t *table, char *key) {
     return -1;
 }
 
-int kv_free(kv_t *table) {
+void kv_free(kv_t *table) {
     if (table == NULL) {
-        return -1;
+        return;
     }
     for (size_t i = 0; i < table->capacity; i++) {
         kv_entry_t *entry = &table->entries[i];
@@ -119,8 +119,6 @@ int kv_free(kv_t *table) {
     }
     free(table->entries);
     free(table);
-
-    return 0;
 }
 
 inline int insert_value(kv_t *table, kv_entry_t *entry, const char *key, const char *value) {
