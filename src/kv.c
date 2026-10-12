@@ -117,6 +117,7 @@ int kv_free(kv_t *table) {
         entry->key = NULL;
         entry->value = NULL;
     }
+    free(table->entries);
     free(table);
 
     return 0;
