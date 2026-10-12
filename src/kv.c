@@ -102,6 +102,26 @@ int kv_delete(kv_t *table, char *key) {
     return -1;
 }
 
+int kv_free(kv_t *table) {
+    if (table == NULL) {
+        return -1;
+    }
+    for (size_t i = 0; i < table->capacity; i++) {
+        kv_entry_t *entry = &table->entries[i];
+        if (entry->key && entry->key != TOMBSTONE) {
+            free(entry->key);
+        }
+        if (entry->value && entry->value != TOMBSTONE) {
+            free(entry->value);
+        }
+        entry->key = NULL;
+        entry->value = NULL;
+    }
+    free(table);
+
+    return 0;
+}
+
 inline int insert_value(kv_t *table, kv_entry_t *entry, const char *key, const char *value) {
     entry->key = strdup(key);
     entry->value = strdup(value);

@@ -23,5 +23,11 @@ int main() {
 
     printf("name: %s, age: %s\n", kv_get(table, "name"), kv_get(table, "age"));
     printf("table size: %lu\n", table->count);
+
+    printf("Freeing...\n");
+    kv_free(table);
+    table = NULL;
+    printf("Table pointer: %p", table);
+
     return 0;
 }
