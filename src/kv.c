@@ -86,7 +86,7 @@ int kv_delete(kv_t *table, char *key) {
         size_t idx = (hash + i) % table->capacity;
         kv_entry_t *entry = &table->entries[idx];
         if (entry->key == NULL) {
-            return 0;
+            return -1;
         }
         if (entry->key &&
             entry->key != TOMBSTONE &&
