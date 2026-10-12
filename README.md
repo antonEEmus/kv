@@ -1,2 +1,2 @@
 # kv
-A key-value store, developed as a portfolio project in the C programming language.
+A key-value hashtable API, developed as a portfolio project using the C programming language.
